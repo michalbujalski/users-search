@@ -1,6 +1,6 @@
 import { UsersTypeAction } from "./Users.reducer"
 import { UsersType } from "./Users.types"
-import { fetchUsers as fetchUsersFromApi} from "../../api"
+import * as api from "../../api"
 
 export interface UsersActions {
   fetchUsers: () => void,
@@ -22,7 +22,7 @@ export const createActions = (dispatch: React.Dispatch<UsersTypeAction>): UsersA
       type: UsersType.FETCH_USERS_START, payload: null
     })
     try{
-      const users = await fetchUsersFromApi()
+      const users = await api.fetchUsers()
       dispatch({
         type: UsersType.FETCH_USERS_SUCCESS,
         payload: users
