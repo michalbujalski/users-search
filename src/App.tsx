@@ -1,14 +1,19 @@
 import React from "react";
 import UserSearchPage from "./pages/UserSearch.page";
 import { UsersProvider } from "./context/users/Users.context";
+import styled from "styled-components";
+
+const Layout = styled.div`
+  font-family: Arial;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <Layout>
       <UsersProvider>
         <UserSearchPage />
       </UsersProvider>
-    </div>
+    </Layout>
   );
 }
 
