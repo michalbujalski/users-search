@@ -4,6 +4,7 @@ import SearchInput from "../components/search-input/SearchInput.component";
 import { useUsers } from "../context/users/Users.context";
 import UsersList from "../components/users-list/UserList.component";
 import { User } from "../context/users/Users.models";
+import Loader from "../components/loader/Loader.component";
 
 const Layout = styled.div`
   padding: 32px;
@@ -48,6 +49,7 @@ export default () => {
         placeholder="Search by user name"
         onChange={handleInputChange}
       />
+      {state.isLoading && <Loader />}
       <UsersListLayout>
         <UsersList users={list} />
       </UsersListLayout>
