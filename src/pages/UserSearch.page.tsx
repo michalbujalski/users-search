@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import SearchInput from "../components/search-input/SearchInput.component";
+import { useUsers } from "../context/users/Users.context";
 
-const SearchPage = styled.button`
-  paddin: 4em;
-  background-color: red;
+const Wrapper = styled.button`
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default () => {
+  const { actions, state } = useUsers();
+
+  useEffect(() => {
+    actions.fetchUsers();
+  }, []);
   return (
-    <SearchPage>
-      <h1>hello</h1>
-    </SearchPage>
+    <Wrapper>
+      <SearchInput />
+    </Wrapper>
   );
 };

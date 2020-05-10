@@ -1,10 +1,13 @@
-import React from 'react';
-import UserSearchPage from './pages/UserSearch.page';
+import React from "react";
+import UserSearchPage from "./pages/UserSearch.page";
+import { UsersProvider } from "./context/users/Users.context";
 
 function App() {
   return (
     <div className="App">
-      <UserSearchPage/>
+      <UsersProvider>
+        <UserSearchPage />
+      </UsersProvider>
     </div>
   );
 }
