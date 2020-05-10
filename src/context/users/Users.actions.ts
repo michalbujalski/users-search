@@ -4,14 +4,14 @@ import { fetchUsers as fetchUsersFromApi} from "../../api"
 
 export interface UsersActions {
   fetchUsers: () => void,
-  searchUsers: (query: string) => void
+  filterUsers: (query: string) => void
 }
 
 export const emptyActions: UsersActions = {
   fetchUsers:  () => {
     throw new Error("fetchUsers not initializded")
   },
-  searchUsers:  (query: string) => {
+  filterUsers:  (query: string) => {
     throw new Error("searchUsers not initializded")
   }
 }
@@ -35,7 +35,10 @@ export const createActions = (dispatch: React.Dispatch<UsersTypeAction>): UsersA
     }
 
   },
-  searchUsers: (query: string) => {
-
+  filterUsers: (query: string) => {
+    dispatch({
+      type: UsersType.FILTER_USERS,
+      payload: query.length > 0 ? query : null
+    })
   }
 })

@@ -18,7 +18,7 @@ export default (state: UsersState, actions: UsersTypeAction) => {
       return {...state, isLoading: false, error: actions.payload}
     }
     case UsersType.FILTER_USERS:{
-      return {...state, filteredUsers: actions.payload}
+      return {...state, searchQuery: actions.payload}
     }
   }
 }

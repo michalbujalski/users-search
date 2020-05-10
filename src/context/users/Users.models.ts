@@ -7,7 +7,7 @@ export interface User {
 
 export interface UsersState {
   allUsers: User[]
-  filteredUsers: User[] | null
+  searchQuery: string | null
   isLoading: boolean
   error: string | null
 }
@@ -15,6 +15,6 @@ export interface UsersState {
 export const initialState: UsersState = {
   allUsers: [],
   isLoading: false,
-  filteredUsers: null,
+  searchQuery: null,
   error: null,
 }
